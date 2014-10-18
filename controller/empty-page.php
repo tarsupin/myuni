@@ -54,15 +54,31 @@ echo '
 <div id="panel-right"></div>
 <div id="content">' . Alert::display();
 
-echo '
-<h2>Create This Page</h2>
-<p>You own all pages under the /' . Me::$vals['handle'] . ' segment, but this page has not been created yet. Would you like to create it now?</p>
-
-<p><form class="uniform" action="/' . Sanitize::variable($url_relative, "/") . '" method="post">' . Form::prepare("my-uni-gen-empty") . '
-	<p><input type="submit" name="submit" value="Create This Page" tabindex="10" /></p>
-</form></p>
-
-</div>';
+// If this is the home page
+if(!isset($url[1]) and Me::$vals['handle'] == $url[0])
+{
+	echo '
+	<h2>Welcome to your Home Page!</h2>
+	<p>This is your official UniFaction page, where people can see what you\'re all about.</p>
+	
+	<p><form class="uniform" action="/' . Sanitize::variable($url_relative, "/") . '" method="post">' . Form::prepare("my-uni-gen-empty") . '
+		<p><input type="submit" name="submit" value="Create This Page" tabindex="10" /></p>
+	</form></p>
+	
+	</div>';
+}
+else
+{
+	echo '
+	<h2>Create This Page</h2>
+	<p>You own all pages under the /' . Me::$vals['handle'] . ' segment, but this page has not been created yet. Would you like to create it now?</p>
+	
+	<p><form class="uniform" action="/' . Sanitize::variable($url_relative, "/") . '" method="post">' . Form::prepare("my-uni-gen-empty") . '
+		<p><input type="submit" name="submit" value="Create This Page" tabindex="10" /></p>
+	</form></p>
+	
+	</div>';
+}
 
 // Display the Footer
 require(SYS_PATH . "/controller/includes/footer.php");

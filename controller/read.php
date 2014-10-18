@@ -29,7 +29,7 @@ if($getData = Link::getData("send-tip-myuni") and is_array($getData) and isset($
 
 // Include Responsive Script
 Photo::prepareResponsivePage();
-Metadata::addHeader('<link rel="stylesheet" href="' . CDN . '/css/content-block.css" />');
+Metadata::addHeader('<link rel="stylesheet" href="' . CDN . '/css/content-system.css" />');
 
 /****** Page Configurations ******/
 $config['canonical'] = "/" . $contentData['url_slug'];
@@ -64,7 +64,7 @@ else
 if(Me::$id == $contentData['uni_id'])
 {
 	echo '
-	<div style="padding-top:22px; font-size:0.8em;"><a href="/page-create?content=' . $contentID . '">Edit this Page</a></div>';
+	<div style="padding-top:22px; font-size:0.8em;"><a href="/write?id=' . $contentID . '">Edit this Page</a></div>';
 }
 
 echo '

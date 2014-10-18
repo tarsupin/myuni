@@ -23,7 +23,7 @@ if($url[0] != '')
 	// If you are loading a specific article
 	if($contentID = (int) Database::selectValue("SELECT content_id FROM content_by_url WHERE url_slug=? LIMIT 1", array($url_relative)))
 	{
-		require(APP_PATH . '/controller/myuni.php'); exit;
+		require(APP_PATH . '/controller/read.php'); exit;
 	}
 	
 	// If the URL is equal to a user

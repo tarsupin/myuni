@@ -1,5 +1,11 @@
 <?php if(!defined("CONF_PATH")) { die("No direct script access allowed."); }
 
+// If you're logging in with a softlog, redirect to your main home
+if(Me::$loggedIn and isset($_GET['slg']))
+{
+	header("Location: /" . Me::$vals['handle']); exit;
+}
+
 /****** Page Configurations ******/
 $config['canonical'] = "/";
 $config['pageTitle'] = "My UniFaction";

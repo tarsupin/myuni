@@ -7,7 +7,7 @@ if(!Me::$loggedIn)
 }
 
 // Prepare Form
-$contentForm = new ContentForm('/page-create', (isset($_GET['content']) ? (int) $_GET['content'] : 0));
+$contentForm = new ContentForm('/write', (isset($_GET['id']) ? (int) $_GET['id'] : 0));
 
 // Set the modules allowed in this content entry
 $contentForm->modules = array(
@@ -41,7 +41,7 @@ $contentForm->runInterpreter();
 
 // Include Responsive Script
 Photo::prepareResponsivePage();
-Metadata::addHeader('<link rel="stylesheet" href="' . CDN . '/css/content-block.css" />');
+Metadata::addHeader('<link rel="stylesheet" href="' . CDN . '/css/content-system.css" />');
 
 // Run Global Script
 require(CONF_PATH . "/includes/global.php");
@@ -63,7 +63,7 @@ echo '
 
 if($contentForm->contentData['status'] != 0)
 {
-	echo '<p>Page is LIVE. Posted ' . Time::fuzzy($contentForm->contentData['date_posted']) . '.</p>';
+	echo '<p>Page is LIVE. Posted ' . Time::fuzzy((int) $contentForm->contentData['date_posted']) . '.</p>';
 }
 
 $contentForm->drawEditingBox();

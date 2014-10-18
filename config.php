@@ -30,10 +30,6 @@ define("SITE_HANDLE", "my_uni");
 // Set the Application Path (in most cases, this is the same as CONF_PATH)
 define("APP_PATH", dirname(CONF_PATH) . "/myuni");
 
-
-// Prepare Default Theme
-Theme::set("default");
-
 // Site-Wide Configurations
 $config['site-name'] = "My UniFaction";
 $config['database']['name'] = "my_uni";
