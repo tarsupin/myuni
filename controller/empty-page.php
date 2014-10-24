@@ -33,7 +33,7 @@ if(Form::submitted("my-uni-gen-empty"))
 	if(FormValidate::pass())
 	{
 		// Create the New Entry
-		$contentID = ContentForm::createEntry(Me::$id, "Untitled Page", Content::STATUS_OFFICIAL, 0, 0, Content::COMMENTS_DISABLED, Content::VOTING_DISABLED, $url_relative);
+		$contentID = ContentForm::createEntry(Me::$id, "Untitled Page", Content::STATUS_OFFICIAL, 0, "", Content::COMMENTS_DISABLED, Content::VOTING_DISABLED, $url_relative);
 		
 		// Begin editing the entry
 		header("Location: /page-create?content=" . $contentID); exit;
